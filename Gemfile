@@ -70,3 +70,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise", "~> 4.9"
+gem "faker", "~> 3.2"
+gem "activestorage", "~> 7.0"
+
+gem "pagy", "~> 6.0"
+gem "pg_search", "~> 2.3"

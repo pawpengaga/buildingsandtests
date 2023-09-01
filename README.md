@@ -1,24 +1,24 @@
-# README
+# Prueba de certificación Erick Rivera
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instrucciones para instalación
 
-Things you may want to cover:
+Intalar dependencias
 
-* Ruby version
+    bundle install
 
-* System dependencies
+Cambiar las credenciales manualmente por las propias en /config/database.yml
 
-* Configuration
+    24|  username: postgres
+    25|  password: 12345678
+    26|  host: localhost
+    27|  port: 5432
 
-* Database creation
+Crear y crear la base de datos
 
-* Database initialization
+    rails db:create db:migrate
 
-* How to run the test suite
+Correr el servidor
 
-* Services (job queues, cache servers, search engines, etc.)
+    rails s
 
-* Deployment instructions
-
-* ...
+## Proyecto instalado.
