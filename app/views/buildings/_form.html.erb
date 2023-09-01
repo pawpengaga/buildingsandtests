@@ -23,8 +23,10 @@
 
   <div>
     <%= form.label :district_id, style: "display: block" %>
-    <%= form.text_field :district_id %>
+    <%= form.select :district_id, District.all.collect {|y| [y.name, y.id]} %>
   </div>
+
+  
 
   <div>
     <%= form.submit %>
