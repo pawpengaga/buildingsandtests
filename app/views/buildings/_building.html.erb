@@ -22,7 +22,7 @@
       </ul>
     </div>
   </div>
-  <% if current_client.present? && (current_client.role == "admin") %>
+  <% if current_client.present? && (current_client.role == "admin" || current_client.role == "vendedor") %>
     <%= link_to "Show this building", building %>
   <%else%>
   <%end%>
