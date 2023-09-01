@@ -2,6 +2,10 @@
 
 <div id="apartments">
 
+  <div class="text-center">
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+  </div>
+
   <div class="row">
 
     <% if current_client.present? && (current_client.role == "admin" || current_client.role == "user") %>
@@ -26,7 +30,12 @@
   </div>
 </div>
 
+<div class="text-center">
+  <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+</div>
+
 <% if current_client.present? && (current_client.role == "admin") %>
   <%= link_to "New apartment", new_apartment_path %>
 <%else%>
 <%end%>
+

@@ -2,10 +2,7 @@
 
 <div id="buildings">
   <% @buildings.each do |building| %>
-    <%= render building %>
-    <p>
-      <%= link_to "Show this building", building %>
-    </p>
+    <div class="border p-2 mb-2"><%= render building %></div>
   <% end %>
 </div>
 

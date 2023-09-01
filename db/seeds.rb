@@ -41,47 +41,29 @@ Service.create(name: "Pet friendly")
 
 #### NIVEL 5
 
+10.times do |building_index|
+    3.times do
+      apartment = Apartment.create(
+        name: Faker::Address.city,
+        rooms: rand(1..3),
+        bath: rand(1..3),
+        price: rand(30000..535990),
+        building_id: building_index + 1,
+        state_id: 1,
+        number: rand(1..9999)
+      )
+      apartment.images.purge
+      available_images = ["th1.jpg", "th2.jpg", "th3.jpg"]
 
-Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 1, state_id: 1, number: rand(1..9999))
-Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 1, state_id: 1, number: rand(1..9999))
-Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 1, state_id: 1, number: rand(1..9999))
-
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 2, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 2, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 2, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 3, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 3, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 3, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 4, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 4, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 4, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 5, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 5, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 5, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 6, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 6, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 6, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 7, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 7, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 7, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 8, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 8, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 8, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 9, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 9, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 9, state_id: 1, number: rand(1..9999))
-#
-#Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
-#Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
-
+      3.times do
+        image_path = available_images.sample
+        image = Rails.root.join("app", "assets", "images", image_path).open
+        apartment.images.attach(io: image, filename: image_path)
+      end
+      
+    end
+  end
+  
 
 #### NIVEL 6
 

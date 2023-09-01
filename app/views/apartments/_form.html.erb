@@ -46,15 +46,6 @@
     <%= form.select :state_id, State.all.collect {|o| [o.tipo, o.id]} %>
   </div>
   
-  <% if @nuevas_imagenes_adjuntas %>
-
-  <%else%>
-    <% if @apartment.images.attached? %>
-      <% @apartment.images.each do |ph| %>
-        <%= form.hidden_field :images, multiple: true, value: ph.signed_id %>
-      <% end %>
-    <% end %>
-  <%end%>
 
   <div class="mb-3">
     <%= form.label :images, "Imagen adjunta", style: "display: block", class:"fw-bold mb-2" %>

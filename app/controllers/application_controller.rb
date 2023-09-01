@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    require 'pagy/extras/bootstrap'
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     def after_sign_in_path_for(resource)
@@ -10,6 +11,9 @@ class ApplicationController < ActionController::Base
             redirect_to apartments_path, notice: "No tienes permiso para hacer esto. Consulta a un administrador."
         end
     end
+
+    Pagy::DEFAULT[:items] = 6
+    include Pagy::Backend
 
     protected
 
