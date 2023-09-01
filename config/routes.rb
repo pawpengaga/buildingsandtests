@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :apartments
+  resources :buildings
+  resources :services
+  resources :districts
+  devise_for :clients
   get 'pages/index'
   get 'pages/about'
   get 'pages/contact'
