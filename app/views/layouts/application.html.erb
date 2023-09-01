@@ -20,6 +20,9 @@
             <%= link_to "Inicio", root_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
               <% if client_signed_in? %>
                   <%= link_to 'Mi cuenta' , edit_client_registration_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %> <!--  # current_user.name-->
+
+                  <%= link_to "Apartamentos", apartments_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
+
                   <%= link_to "Salir", destroy_client_session_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
               <%else%>
                   <%= link_to "Entrar", new_client_session_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
