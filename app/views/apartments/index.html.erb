@@ -8,7 +8,7 @@
 
   <div class="row">
 
-    <% if current_client.present? && (current_client.role == "admin" || current_client.role == "user") %>
+    <% if current_client.present? && (current_client.role == "admin" || current_client.role == "vendedor") %>
 
       <% @apartments.each do |apartment| %>
 

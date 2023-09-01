@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
         apartments_path
     end
 
+    def after_sign_out_path_for(resource)
+        new_client_session_path
+    end
+
     def authorize_request(kind = nil)
         unless kind.include?(current_client.role)
             redirect_to apartments_path, notice: "No tienes permiso para hacer esto. Consulta a un administrador."

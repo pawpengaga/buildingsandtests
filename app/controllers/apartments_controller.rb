@@ -27,7 +27,6 @@ class ApartmentsController < ApplicationController
   def create
     @apartment = Apartment.new(apartment_params)
 
-    @nuevas_imagenes_adjuntas = params[:apartment][:images].present? if params[:apartment]
 
     respond_to do |format|
       if @apartment.save

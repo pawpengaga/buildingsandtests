@@ -8,3 +8,7 @@
 .mylinks:hover{
     background-color: var(--accent) !important;
 }
+
+.hilight{
+    color: var(--accent);
+}

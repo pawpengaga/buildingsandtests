@@ -42,29 +42,42 @@ Service.create(name: "Pet friendly")
 #### NIVEL 5
 
 10.times do |building_index|
-    3.times do
-      apartment = Apartment.create(
-        name: Faker::Address.city,
-        rooms: rand(1..3),
-        bath: rand(1..3),
-        price: rand(30000..535990),
-        building_id: building_index + 1,
-        state_id: 1,
-        number: rand(1..9999)
-      )
-      apartment.images.purge
-      available_images = ["th1.jpg", "th2.jpg", "th3.jpg"]
+  used_numbers = Set.new
+  3.times do
+    number = rand(1..9999)
+    while used_numbers.include?(number)
+      number = rand(1..9999)
+    end
+    used_numbers.add(number)
 
-      3.times do
-        image_path = available_images.sample
-        image = Rails.root.join("app", "assets", "images", image_path).open
-        apartment.images.attach(io: image, filename: image_path)
-      end
-      
+    apartment = Apartment.create(
+      name: Faker::Address.city,
+      rooms: rand(1..3),
+      bath: rand(1..3),
+      price: rand(30000..535990),
+      building_id: building_index + 1,
+      state_id: rand(1..3),
+      number: number
+    )
+    apartment.images.purge
+    available_images = ["th1.jpg", "th2.jpg", "th3.jpg"]
+
+    3.times do
+      image_path = available_images.sample
+      image = Rails.root.join("app", "assets", "images", image_path).open
+      apartment.images.attach(io: image, filename: image_path)
     end
   end
+end
   
 
 #### NIVEL 6
 
-Client.create!(email: "admin@admin", username: "admin", password:"adminadmin", role: 1)
+#Admin
+Client.create!(email: "admin1@buenavista.com", username: "MariAdmin", password:"adminadmin", role: 1)
+Client.create!(email: "admin2@buenavista.com", username: "PaolaAdmin", password:"adminadmin", role: 1)
+
+#User
+Client.create!(email: "vendor1@buenavista.com", username: "Marcela", password:"12345678", role: 0)
+Client.create!(email: "vendor2@buenavista.com", username: "Camila", password:"12345678", role: 0)
+Client.create!(email: "vendor3@buenavista.com", username: "Almendra", password:"12345678", role: 0)

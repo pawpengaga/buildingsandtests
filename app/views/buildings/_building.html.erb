@@ -1,19 +1,29 @@
 <div id="<%= dom_id building %>">
-  <p>
-    <strong>Name:</strong>
-    <%= building.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= building.address %>
-  </p>
-
-  <p>
-    <strong>District:</strong>
-    <%= building.district.name %>
-  </p>
-
-  <%= link_to "Show this building", building %>
-
+  <div class="row">
+    <div class="col-6">
+      <p>
+        <strong>Name:</strong>
+        <%= building.name %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= building.address %>
+      </p>
+      <p>
+        <strong>District:</strong>
+        <%= building.district.name %>
+      </p>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <% building.services.each do |o| %>
+        <li class="list-group-item"><%=o.name%></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+  <% if current_client.present? && (current_client.role == "admin") %>
+    <%= link_to "Show this building", building %>
+  <%else%>
+  <%end%>
 </div>
