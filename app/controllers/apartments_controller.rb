@@ -24,6 +24,8 @@ class ApartmentsController < ApplicationController
   def create
     @apartment = Apartment.new(apartment_params)
 
+    @nuevas_imagenes_adjuntas = params[:apartment][:images].present? if params[:apartment]
+
     respond_to do |format|
       if @apartment.save
         format.html { redirect_to apartment_url(@apartment), notice: "Apartment was successfully created." }
@@ -37,6 +39,7 @@ class ApartmentsController < ApplicationController
 
   # PATCH/PUT /apartments/1 or /apartments/1.json
   def update
+    
     respond_to do |format|
       if @apartment.update(apartment_params)
         format.html { redirect_to apartment_url(@apartment), notice: "Apartment was successfully updated." }

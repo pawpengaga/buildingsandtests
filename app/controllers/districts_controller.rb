@@ -1,5 +1,6 @@
 class DistrictsController < ApplicationController
   before_action :set_district, only: %i[ show edit update destroy ]
+  before_action :authenticate_client!
 
   # GET /districts or /districts.json
   def index

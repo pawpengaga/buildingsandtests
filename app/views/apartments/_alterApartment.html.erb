@@ -7,6 +7,7 @@
       <p class="card-text">Habitaciones: <%= apartment.rooms %></p>
       <p class="card-text">Baños: <%= apartment.bath %></p>
       <p class="card-text">Precio: <%= number_to_currency(apartment.price, precision: 0) %></p>
+      <p class="card-text">ESTADO: <%= apartment.state.tipo%></p>
       <%= link_to "Show this apartment", apartment %>
     </div>
   </div>

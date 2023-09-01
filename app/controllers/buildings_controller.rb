@@ -1,5 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
+  before_action :authenticate_client!
 
   # GET /buildings or /buildings.json
   def index

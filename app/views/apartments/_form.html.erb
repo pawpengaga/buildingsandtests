@@ -18,33 +18,43 @@
 
   <div>
     <%= form.label :number, style: "display: block" %>
-    <%= form.number_field :number %>
+    <%= form.number_field :number, max: 9999 %>
   </div>
 
   <div>
     <%= form.label :rooms, style: "display: block" %>
-    <%= form.number_field :rooms %>
+    <%= form.select :rooms, [0,1,2,3,4,5,6] %>
   </div>
 
   <div>
     <%= form.label :bath, style: "display: block" %>
-    <%= form.number_field :bath %>
+    <%= form.select :bath, [0,1,2,3,4,5,6] %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, max: 99999 %>
   </div>
 
   <div>
     <%= form.label :building_id, style: "display: block" %>
-    <%= form.text_field :building_id %>
+    <%= form.select :building_id, Building.all.collect {|c| [c.name, c.id]} %>
   </div>
 
   <div>
     <%= form.label :state_id, style: "display: block" %>
-    <%= form.text_field :state_id %>
+    <%= form.select :state_id, State.all.collect {|o| [o.tipo, o.id]} %>
   </div>
+  
+  <% if @nuevas_imagenes_adjuntas %>
+
+  <%else%>
+    <% if @apartment.images.attached? %>
+      <% @apartment.images.each do |ph| %>
+        <%= form.hidden_field :images, multiple: true, value: ph.signed_id %>
+      <% end %>
+    <% end %>
+  <%end%>
 
   <div class="mb-3">
     <%= form.label :images, "Imagen adjunta", style: "display: block", class:"fw-bold mb-2" %>
