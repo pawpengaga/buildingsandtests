@@ -1,32 +1,43 @@
 <div id="<%= dom_id apartment %>">
+
+
+  <% apartment.images.each do |u| %>
+    <%= image_tag u, class:"d-block mb-3 w-50 col-6" %>
+  <%end%>
+
   <p>
-    <strong>Name:</strong>
+    <strong>Apartamento:</strong>
     <%= apartment.name %>
   </p>
 
   <p>
-    <strong>Rooms:</strong>
+    <strong>Numero:</strong>
+    <%= apartment.number %>
+  </p>
+
+  <p>
+    <strong>Habitaciones:</strong>
     <%= apartment.rooms %>
   </p>
 
   <p>
-    <strong>Bath:</strong>
+    <strong>Baños:</strong>
     <%= apartment.bath %>
   </p>
 
   <p>
-    <strong>Price:</strong>
-    <%= apartment.price %>
+    <strong>Precio:</strong>
+    <%= number_to_currency(apartment.price, precision: 0) %>
   </p>
 
   <p>
     <strong>Building:</strong>
-    <%= apartment.building_id %>
+    <%= apartment.building.name %>
   </p>
 
   <p>
-    <strong>State:</strong>
-    <%= apartment.state_id %>
+    <strong>Estado:</strong>
+    <%= apartment.state.tipo%>
   </p>
 
 </div>

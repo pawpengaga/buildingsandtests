@@ -22,6 +22,9 @@
                   <%= link_to 'Mi cuenta' , edit_client_registration_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %> <!--  # current_user.name-->
 
                   <%= link_to "Apartamentos", apartments_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
+                  <%= link_to "Edificios", buildings_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
+                  <%= link_to "Comunas", districts_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
+                  <%= link_to "Servicios", services_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
 
                   <%= link_to "Salir", destroy_client_session_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
               <%else%>
@@ -41,8 +44,10 @@
 
 
 
-    <div class="container mt-5"><%= yield %></div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container mt-5"><%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+
   </body>
 </html>

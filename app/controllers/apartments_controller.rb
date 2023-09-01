@@ -1,5 +1,6 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: %i[ show edit update destroy ]
+  before_action :authenticate_client!, only: [:new, :create, :edit, :delete, :destroy]
 
   # GET /apartments or /apartments.json
   def index
@@ -65,6 +66,6 @@ class ApartmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def apartment_params
-      params.require(:apartment).permit(:name, :rooms, :bath, :price, :building_id, :state_id)
+      params.require(:apartment).permit(:name, :rooms, :bath, :price, :building_id, :state_id, :number, images: [])
     end
 end

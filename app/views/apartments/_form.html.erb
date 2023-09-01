@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div>
     <%= form.label :rooms, style: "display: block" %>
     <%= form.number_field :rooms %>
   </div>
@@ -39,6 +44,11 @@
   <div>
     <%= form.label :state_id, style: "display: block" %>
     <%= form.text_field :state_id %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :images, "Imagen adjunta", style: "display: block", class:"fw-bold mb-2" %>
+    <%= form.file_field :images, multiple: true, class: "form-control" %>
   </div>
 
   <div>

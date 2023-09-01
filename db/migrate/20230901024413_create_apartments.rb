@@ -6,7 +6,7 @@ class CreateApartments < ActiveRecord::Migration[7.0]
       t.integer :bath
       t.integer :price
       t.references :building, null: false, foreign_key: true
-      t.references :state, null: false, foreign_key: true
+      t.references :state, null: false, foreign_key: true, default: 1
 
       t.timestamps
     end

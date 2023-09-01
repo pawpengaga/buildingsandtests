@@ -3,12 +3,15 @@
 <h1>Apartments</h1>
 
 <div id="apartments">
-  <% @apartments.each do |apartment| %>
-    <%= render apartment %>
-    <p>
-      <%= link_to "Show this apartment", apartment %>
-    </p>
-  <% end %>
+
+  <div class="row">
+    <% @apartments.each do |apartment| %>
+      <div class="col-4">
+        <%= render partial: 'alterApartment', locals: { apartment: apartment } %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
 
 <%= link_to "New apartment", new_apartment_path %>
