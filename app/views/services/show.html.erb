@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @service %>
 
-<div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
-  <%= link_to "Back to services", services_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
 
-  <%= button_to "Destroy this service", @service, method: :delete %>
-</div>
+  <div>
+    <%= link_to "Edit this service", edit_service_path(@service) %> |
+    <%= link_to "Back to services", services_path %>
+
+    <%= button_to "Destroy this service", @service, method: :delete %>
+  </div>
+
+<%else%>
+  <%= link_to "Back to services", services_path %>
+<%end%>

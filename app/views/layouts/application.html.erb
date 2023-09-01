@@ -19,7 +19,7 @@
           <div class="navbar-nav">
             <%= link_to "INMOVILIARIA BUENA VISTA", root_path, class: "nav-link fw-bold text-white px-4 py-3" %>
               <% if client_signed_in? %>
-                  <%= link_to current_client.email, edit_client_registration_path, class: "nav-link text-white px-4 py-3 mylinks" %> <!--  # current_user.name-->
+              <%= link_to "#{current_client.username} (#{current_client.role})", edit_client_registration_path, class: "nav-link text-white px-4 py-3 mylinks" %><!--  # current_user.name-->
 
                   <%= link_to "Apartamentos", apartments_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
                   <%= link_to "Edificios", buildings_path, class: "nav-link fw-bold text-white px-4 py-3 mylinks" %>
@@ -48,6 +48,6 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

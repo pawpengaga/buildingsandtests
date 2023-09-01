@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @apartment %>
 
-<div>
-  <%= link_to "Edit this apartment", edit_apartment_path(@apartment) %> |
-  <%= link_to "Back to apartments", apartments_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
+  <div>
+    <%= link_to "Edit this apartment", edit_apartment_path(@apartment) %> |
+    <%= link_to "Back to apartments", apartments_path %>
 
-  <%= button_to "Destroy this apartment", @apartment, method: :delete %>
-</div>
+    <%= button_to "Destroy this apartment", @apartment, method: :delete %>
+  </div>
+<%else%>
+  <%= link_to "Back to apartments", apartments_path %>
+<%end%>

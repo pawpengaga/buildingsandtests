@@ -81,3 +81,8 @@ Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), pr
 #Apartment.create(name: "Departamento 1", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
 #Apartment.create(name: "Departamento 2", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
 #Apartment.create(name: "Departamento 3", rooms: rand(1..3), bath: rand(1..3), price: rand(30000..535990), building_id: 10, state_id: 1, number: rand(1..9999))
+
+
+#### NIVEL 6
+
+Client.create!(email: "admin@admin", username: "admin", password:"adminadmin", role: 1)

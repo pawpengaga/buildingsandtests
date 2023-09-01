@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @district %>
 
-<div>
-  <%= link_to "Edit this district", edit_district_path(@district) %> |
-  <%= link_to "Back to districts", districts_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
 
-  <%= button_to "Destroy this district", @district, method: :delete %>
-</div>
+  <div>
+    <%= link_to "Edit this district", edit_district_path(@district) %> |
+    <%= link_to "Back to districts", districts_path %>
+
+    <%= button_to "Destroy this district", @district, method: :delete %>
+  </div>
+
+<%else%>
+  <%= link_to "Back to districts", districts_path %>
+<%end%>

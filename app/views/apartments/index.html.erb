@@ -1,17 +1,32 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Apartments</h1>
+<h1>Departamentos</h1>
 
 <div id="apartments">
 
   <div class="row">
-    <% @apartments.each do |apartment| %>
-      <div class="col-4">
-        <%= render partial: 'alterApartment', locals: { apartment: apartment } %>
-      </div>
-    <% end %>
+
+    <% if current_client.present? && (current_client.role == "admin" || current_client.role == "user") %>
+
+      <% @apartments.each do |apartment| %>
+
+          <div class="col-4">
+            <%= render partial: 'alterApartment', locals: { apartment: apartment } %>
+          </div>
+
+      <% end %>
+
+    <%else%>
+      <% @apartments.each do |apartment| %>
+        <% unless apartment.state.tipo == "Vendido" || apartment.state.tipo == "Arrendado" %>
+          <div class="col-4">
+            <%= render partial: 'alterApartment', locals: { apartment: apartment } %>
+          </div>
+        <%end%>
+      <% end %>
+    <%end%>
   </div>
 </div>
 
-
-<%= link_to "New apartment", new_apartment_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
+  <%= link_to "New apartment", new_apartment_path %>
+<%else%>
+<%end%>

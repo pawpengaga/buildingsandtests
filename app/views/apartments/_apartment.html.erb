@@ -1,43 +1,74 @@
 <div id="<%= dom_id apartment %>">
 
 
-  <% apartment.images.each do |u| %>
-    <%= image_tag u, class:"d-block mb-3 w-50 col-6" %>
-  <%end%>
+  <div class="row">
+    <div class="col-6">
 
-  <p>
-    <strong>Apartamento:</strong>
-    <%= apartment.name %>
-  </p>
 
-  <p>
-    <strong>Numero:</strong>
-    <%= apartment.number %>
-  </p>
+      
 
-  <p>
-    <strong>Habitaciones:</strong>
-    <%= apartment.rooms %>
-  </p>
 
-  <p>
-    <strong>Baños:</strong>
-    <%= apartment.bath %>
-  </p>
 
-  <p>
-    <strong>Precio:</strong>
-    <%= number_to_currency(apartment.price, precision: 0) %>
-  </p>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-interval="2000">
+        <div class="carousel-inner">
 
-  <p>
-    <strong>Building:</strong>
-    <%= apartment.building.name %>
-  </p>
 
-  <p>
-    <strong>Estado:</strong>
-    <%= apartment.state.tipo%>
-  </p>
+          <% apartment.images.each_with_index do |u, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+             <%= image_tag u, class:"d-block w-100" %>
+            </div>
+          <%end%>
+
+            
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+      <p>
+        <strong>Apartamento:</strong>
+        <%= apartment.name %>
+      </p>
+      <p>
+        <strong>Numero:</strong>
+        <%= apartment.number %>
+      </p>
+      <p>
+        <strong>Habitaciones:</strong>
+        <%= apartment.rooms %>
+      </p>
+      <p>
+        <strong>Baños:</strong>
+        <%= apartment.bath %>
+      </p>
+      <p>
+        <strong>Precio:</strong>
+        <%= number_to_currency(apartment.price, precision: 0) %>
+      </p>
+      <p>
+        <strong>Building:</strong>
+        <%= apartment.building.name %>
+      </p>
+      <p>
+        <strong>Estado:</strong>
+        <%= apartment.state.tipo%>
+      </p>
+    </div>
+
+    <div class="col-6 ">
+      <div class="border rounder p-3">
+        <h2>Datos edificio</h2>
+        <%= render partial: 'buildings/building', locals: { building: apartment.building } %>
+      </div>
+    </div>
+  </div>
 
 </div>

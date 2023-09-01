@@ -1,6 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Services</h1>
+<h1>Servicios</h1>
 
 <div id="services">
   <% @services.each do |service| %>
@@ -11,4 +9,7 @@
   <% end %>
 </div>
 
-<%= link_to "New service", new_service_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
+  <%= link_to "New service", new_service_path %>
+<%else%>
+<%end%>

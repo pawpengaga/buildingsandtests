@@ -6,7 +6,7 @@ class Client < ApplicationRecord
 
   has_one_attached :avatar, dependent: :destroy
 
-  enum :role, [:user, :admin]
+  enum :role, [:vendedor, :admin, :anon]
 
   after_create :attach_default_avatar
   before_destroy :purge_avatar

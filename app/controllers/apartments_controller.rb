@@ -1,6 +1,9 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: %i[ show edit update destroy ]
   before_action :authenticate_client!, only: [:new, :create, :edit, :delete, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    authorize_request(["admin"])
+  end
 
   # GET /apartments or /apartments.json
   def index

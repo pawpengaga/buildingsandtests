@@ -1,6 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Districts</h1>
+<h1>Comunas</h1>
 
 <div id="districts">
   <% @districts.each do |district| %>
@@ -11,4 +9,7 @@
   <% end %>
 </div>
 
-<%= link_to "New district", new_district_path %>
+<% if current_client.present? && (current_client.role == "admin") %>
+  <%= link_to "New district", new_district_path %>
+<%else%>
+<%end%>
