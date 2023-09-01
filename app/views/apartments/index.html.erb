@@ -35,7 +35,7 @@
 </div>
 
 <% if current_client.present? && (current_client.role == "admin") %>
-  <%= link_to "New apartment", new_apartment_path %>
+  <%= link_to "New apartment", new_apartment_path, class: "btn btn-primary" %>
 <%else%>
 <%end%>
 

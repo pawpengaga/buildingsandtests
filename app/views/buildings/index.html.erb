@@ -8,6 +8,6 @@
 
 
 <% if current_client.present? && (current_client.role == "admin") %>
-  <%= link_to "New building", new_building_path %>
+  <%= link_to "New building", new_building_path, class: "btn btn-primary" %>
 <%else%>
 <%end%>

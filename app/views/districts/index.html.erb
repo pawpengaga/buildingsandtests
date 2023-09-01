@@ -1,15 +1,27 @@
 <h1>Comunas</h1>
 
 <div id="districts">
-  <% @districts.each do |district| %>
-    <%= render district %>
-    <p>
-      <%= link_to "Show this district", district %>
-    </p>
-  <% end %>
+
+  <table class="table table-stripped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Ver</th>
+      </tr>
+    </thead>
+    <% @districts.each do |district| %>
+
+        <tbody>
+          <tr>
+            <td><%=district.name%></td>
+            <td><%= link_to "Show this district", district %></td>
+          </tr>
+        </tbody>
+    <% end %>
+  </table>
 </div>
 
 <% if current_client.present? && (current_client.role == "admin") %>
-  <%= link_to "New district", new_district_path %>
+  <%= link_to "New district", new_district_path, class: "btn btn-primary" %>
 <%else%>
 <%end%>

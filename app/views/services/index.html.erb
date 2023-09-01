@@ -1,15 +1,26 @@
 <h1>Servicios</h1>
 
 <div id="services">
-  <% @services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "Show this service", service %>
-    </p>
-  <% end %>
+  <table class="table table-stripped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Ver</th>
+      </tr>
+    </thead>
+    <% @services.each do |service| %>
+        <tbody>
+          <tr>
+            <td><%= service.name %></td>
+            <td><%= link_to "Show this service", service %></td>
+          </tr>
+        </tbody>
+    
+    <% end %>
+  </table>
 </div>
 
 <% if current_client.present? && (current_client.role == "admin") %>
-  <%= link_to "New service", new_service_path %>
+  <%= link_to "New service", new_service_path, class: "btn btn-primary" %>
 <%else%>
 <%end%>
