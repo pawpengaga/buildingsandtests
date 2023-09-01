@@ -4,7 +4,7 @@ class Client < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :images, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
 
   enum :role, [:user, :admin]
 

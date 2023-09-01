@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
   resources :apartments
   resources :buildings
   resources :services
   resources :districts
-  devise_for :clients
+  
+  devise_for :clients, controllers: {
+    sessions: 'clients/sessions',
+    registrations: 'clients/registrations'
+  }
+  
   get 'pages/index'
   get 'pages/about'
   get 'pages/contact'

@@ -31,6 +31,21 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username%>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, placeholder: "Incluir código de pais" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= f.label :avatar, "Foto de perfil", style: "display: block", class: "mb-2 fw-bold" %>
+    <%= f.file_field :avatar, multiple: false, class: "form-control" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

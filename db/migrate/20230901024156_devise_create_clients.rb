@@ -34,7 +34,7 @@ class DeviseCreateClients < ActiveRecord::Migration[7.0]
 
       t.string :username
       t.string :phone
-      t.integer :role
+      t.integer :role, default: 0
 
       t.timestamps null: false
     end
