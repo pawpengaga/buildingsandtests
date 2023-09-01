@@ -1,5 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
+  before_action :set_services, only: %i[ new edit create update]
   before_action :authenticate_client!
 
   # GET /buildings or /buildings.json
@@ -64,8 +65,12 @@ class BuildingsController < ApplicationController
       @building = Building.find(params[:id])
     end
 
+    def set_services
+      @services = Service.all
+    end
+
     # Only allow a list of trusted parameters through.
     def building_params
-      params.require(:building).permit(:name, :address, :district_id)
+      params.require(:building).permit(:name, :address, :district_id, :service_ids => [], services_atrributes: [:id, :name])
     end
 end

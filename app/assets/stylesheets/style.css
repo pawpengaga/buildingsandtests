@@ -1,0 +1,10 @@
+:root{
+    --accent: rgb(228, 30, 96);
+    --seccon: rgb(247, 63, 118);
+
+    --contrast: rgb(3,255,235);
+}
+
+.mylinks:hover{
+    background-color: var(--accent) !important;
+}

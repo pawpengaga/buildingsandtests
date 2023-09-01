@@ -26,7 +26,14 @@
     <%= form.select :district_id, District.all.collect {|y| [y.name, y.id]} %>
   </div>
 
-  
+  <div>
+    <%= form.label :service_ids, "Servicios", style: "display: block" %>
+    <%= form.collection_check_boxes :service_ids, @services, :id, :name do |cb| %>
+      <div class="form-check">
+        <%= cb.label(class: "mb-1 fst-italic") { cb.check_box(class: "me-2" ) + cb.text } %> <br>
+      </div>
+    <% end %>
+  </div>
 
   <div>
     <%= form.submit %>
