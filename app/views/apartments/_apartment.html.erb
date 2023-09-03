@@ -1,26 +1,18 @@
 <div id="<%= dom_id apartment %>">
 
-
   <div class="row">
     <div class="col-6">
 
-
       
-
-
-
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-interval="2000">
         <div class="carousel-inner">
-
 
           <% apartment.images.each_with_index do |u, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
              <%= image_tag u, class:"d-block w-100" %>
             </div>
           <%end%>
-
             
-
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

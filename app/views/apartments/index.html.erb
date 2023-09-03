@@ -19,13 +19,15 @@
       <% end %>
 
     <%else%>
+
       <% @apartments.each do |apartment| %>
-        <% unless apartment.state.tipo == "Vendido" || apartment.state.tipo == "Arrendado" %>
+        <% #unless apartment.state.tipo == "Vendido" || apartment.state.tipo == "Arrendado" %>
           <div class="col-4">
             <%= render partial: 'alterApartment', locals: { apartment: apartment } %>
           </div>
-        <%end%>
+        <%#end%>
       <% end %>
+
     <%end%>
   </div>
 </div>
@@ -38,4 +40,3 @@
   <%= link_to "New apartment", new_apartment_path, class: "btn btn-primary" %>
 <%else%>
 <%end%>
-

@@ -25,12 +25,6 @@ District.create(name: "Vitacura")
 
 #### NIVEL3
 
-10.times do |u|
-    Building.create(name: "#{Faker::Name.first_name} N° #{rand(3..99)}", address: Faker::Address.street_address, district_id: rand(1..5))
-end
-
-##### NIVEL 4
-
 Service.create(name: "Piscina")
 Service.create(name: "Quincho")
 Service.create(name: "Gimnasio")
@@ -38,6 +32,18 @@ Service.create(name: "Áreas verdes")
 Service.create(name: "Juegos infantiles")
 Service.create(name: "Estacionamiento")
 Service.create(name: "Pet friendly")
+
+##### NIVEL 4
+
+services = Service.all.to_a
+10.times do |u|
+  building = Building.create(name: "#{Faker::Name.first_name} N° #{rand(3..99)}", address: Faker::Address.street_address, district_id: rand(1..5))
+
+
+  services.sample(rand(0..7)).each do |service|
+    building.services << service
+  end
+end
 
 #### NIVEL 5
 

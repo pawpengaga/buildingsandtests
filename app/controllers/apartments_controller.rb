@@ -7,7 +7,11 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @pagy, @apartments = pagy(Apartment.all)
+    if current_client == nil
+      @pagy, @apartments = pagy(Apartment.where(state_id: 1))
+    else
+      @pagy, @apartments = pagy(Apartment.all)
+    end
   end
 
   # GET /apartments/1 or /apartments/1.json
