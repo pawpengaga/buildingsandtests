@@ -21,14 +21,14 @@
     <%= form.number_field :number, max: 9999 %>
   </div>
 
-  <div>
+  <div id="test-message">
     <%= form.label :rooms, style: "display: block" %>
-    <%= form.select :rooms, [0,1,2,3,4,5,6] %>
+    <%= form.select :rooms, set_options_range(0, 6) %>
   </div>
 
   <div>
     <%= form.label :bath, style: "display: block" %>
-    <%= form.select :bath, [0,1,2,3,4,5,6] %>
+    <%= form.select :bath, set_options_range(0, 6) %>
   </div>
 
   <div>
